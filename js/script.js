@@ -1,5 +1,6 @@
 let humanScore = 0;
 let computerScore = 0;
+let roundCount = 0;
 const rockButton = document.querySelector(".rock-button");
 const paperButton = document.querySelector(".paper-button");
 const scissorsButton = document.querySelector(".scissors-button");
@@ -98,5 +99,33 @@ function playRound(humanChoiceForRound) {
             }
             break;
     }
+
+    roundCount +=1;
+    if (roundCount == 5) {
+        endGameAndPlayAgain();
+        roundCount = 0;
+        humanScore = 0;
+        computerScore = 0;
+    }
+
+}
+
+function endGameAndPlayAgain() {
+    let finalResult = "";
+    if (computerScore == humanScore) {
+        finalResult = "Draw!"
+    }
+    else {
+        (computerScore < humanScore) ? finalResult = "Loss!" : finalResult = "Win!";
+    }
+    resultsDisplay.innerHTML = "";
+    createResult(humanScore, computerScore, finalResult);
+    const playAgainButton = document.createElement("button");
+    playAgainButton.classList.add("play-again-button");
+    playAgainButton.textContent = "Play Again";
+    resultsDisplay.appendChild(playAgainButton);
+    playAgainButton.addEventListener("click", () => {
+        resultsDisplay.innerHTML = "";
+    });
 }
 

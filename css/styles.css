@@ -5,7 +5,13 @@
 h1 { 
     color: white;
     font-size: 48px;
+    margin-bottom: 0px;
 }
+
+h3 {
+    color: white;
+}
+
 body {
     display: flex;
     align-items: center;
@@ -16,7 +22,7 @@ body {
     margin-bottom: 24px;
 }
 
-.buttons button {
+.buttons button, .play-again-button {
     border-radius: 12px;
     border: 0px;
     background-color: blue;
@@ -24,6 +30,15 @@ body {
     padding: 12px 24px;
     font-weight: 900;
     font-size: 20px;
+}
+
+.play-again-button {
+    margin-bottom: 12px;
+}
+
+.results-display {
+    display: flex;
+    flex-direction: column;
 }
 
 .game-container {
@@ -40,7 +55,7 @@ body {
 
 .round-count  {
     border-radius: 24px;
-    margin: 12px 0px;
+    margin: 0px 0px 12px;
     background-color: lightblue;
     width: 540px;
     justify-content: space-evenly;
